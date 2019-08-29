@@ -1,0 +1,28 @@
+i		Identification
+Q,q		Quit
+c 	   	Clear Panic Button/Fatal Error
+C		Calibrate
+D		Set the per fiber delay in the flash/read sequence
+s		Sequence -- run the LEDs and read the diodes
+a		Check placement
+b		Toggle background subtraction
+N		Dump normalization constants on the serial line
+n #		Set number of active channels/LEDs to #
+S #		Set statistical sample size to #
+h		Park/home the motors
+m #		Move to connector #...
+H		Force motors to go backward until they trip the switch
+T #		Set ODU type to #
+e		Toggle command echo
+A 	   	Toggle All the LEDs on/off
+p 		Report the position of each motor
+x #		Move # steps on the x-axis
+y #		Move # steps on the y-axis
+z #		Move # steps on the z-axis
+r #		Turn # steps on the r-axis
+R #		Go to angle # degrees
+U		Unlock/release the motors
+t #		Toggle LED # on/off
+I		Plug Into the ODU connector
+O		Unplug from the ODU connector
+G		Set GORT mode (turn on the robot)

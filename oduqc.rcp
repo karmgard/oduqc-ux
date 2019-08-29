@@ -1,0 +1,91 @@
+#
+# ODU QC Run Control Parameter file
+#
+############################## General program options ##########################################
+
+int VERBOSE			= 0       	# Program noises
+bool LOGGING			= false		# Route the verbose output to a file?
+
+bool USE_HARDWARE		= true		# Use the serial connection class to control
+     				  		# the arduino?
+
+string DEVICE_NAME		= /dev/odubot	# Hardware device name the system uses
+
+bool FULL_AUTO			= false		# Never go full retard... Override the Continue
+     				  		# button and test the connectors straight through
+						# Useful for the robot & automagickal testing
+
+bool USE_ROBOT			= false		# If the QC robot is available and functioning properly,
+     				  		# Should we use it? Even if true if the Arduino doesn't
+						# respond properly, this (and FULL_AUTO) will be false
+
+uint NUMBER_OF_CHANNELS		= 18		# Number of active channels to be plotted
+uint NUMBER_OF_SAMPLES          = 100		# Number of reads the arduino will average over
+uint NUMBER_OF_CONNECTORS	= 18		# Number of connectors on the faceplate
+bool SUBTRACT_NOISE         	= true		# Subtract diode noise from readings?
+bool SAVE_OUTPUT         	= true		# Write the output to a text file?
+bool RUN_ALL			= true		# Run over all connectors? Or just one?
+
+int ODUID_MAX			= 60		# Maximum ODU number
+uint ODU_TYPE			= 1		# Which of the four types? 
+
+string OUTPUT_DIRECTORY		= data
+						# Where to put the output files. Use NULL, or NONE, or . to
+       						# default to the current working directory. Less than 32 chars
+
+uint PER_FIBER_DELAY		= 150		# Delay (in ms) built into the flash/read routine on the
+     				  		# Arduino. This is the minimum time that will be taken 
+						# to measure each fiber so that the computer has time to
+						# update it's data before being interupted by the next
+						# communication from the Arduino.
+
+float RERUN_TRIGGER		= 0.5		# If any fiber on a connector is less than this number, 
+      				  		# Automatically unplug, replug, and retest that connector
+
+float RERUN_FLOOR		= 0.15		# If a fiber isn't being used we *ought* to get a zero on
+      				  		# that channel. Which would cause a retest on every single
+						# connector. Bad form. So for retests require it to be at
+						# least this (so it appears to be connected) but less than
+						# that (so it appears to be not working). But, regardless, 
+						#
+int MAX_RETESTS			= 2		# no more than this number of times
+
+################ Bar graph options ###############################################
+
+float FRACTION_MARGIN		= 0.02		# The margins as a fraction of the graphic width
+float OFFSET			= 0.1		# Active chart area is offset <>% of the frame
+float CHART_HEIGHT		= 0.925		# Chart 100% is at <>% of the image
+float FRACTION_HEIGHT		= 0.8		# Shadow height relative to the bar
+float FRACTION_SHADOW		= 0.4		# Shadow & gap fractions as a percentage 
+float FRACTION_GAP		= 0.2		# of the width of a single bar
+float WARNING_LIMIT		= 0.65		# When to throw a warning for low light (yellow)
+float FAILURE_LIMIT		= 0.5		# When to mark a fiber as broken        (red)
+
+string COLOR_BACKGROUND		= #a3a3a3ff
+string COLOR_FOREGROUND		= #33dd33ff
+string COLOR_PASS		= #33dd33ff
+string COLOR_WARN		= #dddd22ff
+string COLOR_FAIL		= #dd2222ff
+string COLOR_SHADOW		= #414141aa
+string COLOR_CALIB		= #45b39dff	# On ADC style plots, these are the colors
+string COLOR_SIGNAL		= #f39c12ff	# used for the calibration diode (small) and
+       				  		# the ODU signal diode (large) They are plotted
+						# on top of each other 
+string COLOR_FIBER		= #22ee22ff
+string GRAPH_STYLE		= PERCENT	# Graduate the plot by percent? Or ADC count?
+
+############################## Window options #################################################
+
+uint wxWIDTH			= 800		# Width  of the window
+uint wxHEIGHT			= 480		# Height of the window
+uint gWIDTH			= 575		# Width  of the graph
+uint gHEIGHT			= 380		# Height of the graph
+uint fWIDTH			= 210		# Width  of the faceplate
+uint fHEIGHT			= 380		# Height of the faceplate
+uint GRAPH_RATIO		= 73
+uint FACE_RATIO			= 27
+
+bool FULLSCREEN			= false
+
+EOF				  		# End-Of-File marker.
+

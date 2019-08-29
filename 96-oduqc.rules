@@ -1,0 +1,8 @@
+# UDEV rules for the ODU QCBot arduino. Copy to /lib/udev/rules.d then
+# reload the rules with sudo udevadm control --reload. Thereafter, when the
+# qc arduino is plugged in the kernel with assign a soft link to the device
+# named /dev/odubot with global (0666) access permission. This is the
+# device you can use to connect the software to in ~/.config/oduqc/oduqc.rcp
+
+KERNEL=="ttyACM[0-9]" ATTRS{idVendor}=="2a03" ATTRS{idProduct}=="0043" MODE="0666" SYMLINK+="odubot"
+KERNEL=="ttyACM[0-9]" ATTRS{idVendor}=="2341" ATTRS{idProduct}=="0043" MODE="0666" SYMLINK+="odubot"
